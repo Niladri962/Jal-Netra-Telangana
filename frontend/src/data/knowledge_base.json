@@ -1,0 +1,110 @@
+[
+  {
+    "id": "KB-01",
+    "title": "BIS IS 10500:2012 — key drinking water parameters",
+    "type": "standard",
+    "text": "IS 10500:2012 (Bureau of Indian Standards) specifies drinking water requirements. pH: acceptable 6.5–8.5, no relaxation. Total dissolved solids: acceptable limit 500 mg/L, permissible limit 2000 mg/L in the absence of an alternate source. Turbidity: acceptable 1 NTU, permissible 5 NTU. Free residual chlorine: minimum 0.2 mg/L; where protection against viral infection is required it should be minimum 0.5 mg/L; permissible 1 mg/L. Bacteriological: E. coli and thermotolerant coliforms shall not be detectable in any 100 mL sample. Specific ions of health concern (fluoride 1.0/1.5 mg/L, nitrate 45 mg/L, arsenic 0.01 mg/L) must be tested in a laboratory; they are not measured by the JalNetra simulated sensors."
+  },
+  {
+    "id": "KB-02",
+    "title": "WHO Guidelines for Drinking-water Quality — disinfection and turbidity",
+    "type": "standard",
+    "text": "WHO guidance: for effective disinfection, median turbidity should ideally be below 0.1 NTU and should not exceed 1 NTU. The health-based guideline value for chlorine is 5 mg/L; a residual of at least 0.2 mg/L free chlorine at the point of delivery is commonly recommended. Effective chlorination is pH dependent: at higher pH less hypochlorous acid (HOCl) is present, so disinfection is weaker. TDS has no health-based guideline value; palatability is generally good below 600 mg/L and becomes increasingly unpalatable above about 1000 mg/L."
+  },
+  {
+    "id": "KB-03",
+    "title": "Mission Bhagiratha — programme summary",
+    "type": "programme",
+    "text": "Mission Bhagiratha is the Government of Telangana's drinking water supply programme, launched in 2016, intended to provide safe, treated piped drinking water to every household in rural and urban habitations, drawing mainly on surface water from the Godavari and Krishna river systems and their reservoirs. Published service-level targets are 100 litres per capita per day (LPCD) in rural areas, 135 LPCD in municipalities and 150 LPCD in municipal corporations. The scheme comprises intake works, water treatment plants, transmission mains, balancing and service reservoirs, distribution networks and household tap connections. NOTE: This is a summary for demonstration; figures and design details should be verified against official Mission Bhagiratha / Telangana Rural Water Supply documentation. JalNetra's network layout, WTPs, reservoirs and pipelines are illustrative simulations and do not represent verified Mission Bhagiratha alignments."
+  },
+  {
+    "id": "KB-04",
+    "title": "SOP — Low residual chlorine",
+    "type": "sop",
+    "text": "When free residual chlorine at a tank or tail-end tap falls below 0.2 mg/L: (1) Verify immediately with a DPD field test kit at the storage tank and at two tail-end taps; an online sensor reading is an indication, not a certified laboratory measurement. (2) Inspect the chlorinator or hypochlorite dosing pump, stock of bleaching powder/sodium hypochlorite, and power supply. (3) Check for high chlorine demand caused by contamination or high turbidity. (4) Collect a bacteriological sample (E. coli / thermotolerant coliforms). (5) If low chlorine is confirmed, restore dosing, consider shock chlorination of the storage tank and flush the distribution lines. (6) Notify the designated public health officer if chlorine is below 0.1 mg/L or if diarrhoeal cases are increasing. Record all actions in the operator log."
+  },
+  {
+    "id": "KB-05",
+    "title": "SOP — High turbidity",
+    "type": "sop",
+    "text": "When turbidity exceeds 1 NTU (warning) or 5 NTU (critical): (1) Collect confirmatory samples for turbidity and bacteriological testing. (2) At the treatment plant, check coagulant dose, flocculation, settling and filter performance; look for filter breakthrough. (3) In the network, look for pipe breaks, negative pressure events or ingress, and sediment disturbance in storage tanks. (4) Increase residual chlorine monitoring because particles shield micro-organisms and consume chlorine. (5) Flush affected mains and clean storage tanks if required. (6) Consider advising consumers to boil water if turbidity is high and chlorine is low simultaneously, in consultation with health authorities."
+  },
+  {
+    "id": "KB-06",
+    "title": "SOP — Elevated TDS",
+    "type": "sop",
+    "text": "TDS above 500 mg/L exceeds the BIS acceptable limit; above 2000 mg/L exceeds the permissible limit. High TDS is primarily an acceptability (taste), scaling and corrosion concern and is NOT by itself evidence of acute toxicity. Actions: (1) Collect a sample for full chemical analysis including fluoride, nitrate, hardness, chloride and sulphate. (2) Investigate groundwater blending, borewell cross-connections and source changes. (3) Clean and recalibrate the conductivity/TDS probe. (4) If confirmed, communicate with consumers and plan source management; high-TDS water may cause consumers to switch to unsafe alternate sources."
+  },
+  {
+    "id": "KB-07",
+    "title": "SOP — Abnormal pH",
+    "type": "sop",
+    "text": "pH outside 6.5–8.5: verify with a calibrated pH meter; review chemical dosing (alum, lime, chlorine gas) at the treatment plant. Low pH increases corrosion and possible metal leaching; high pH reduces chlorine disinfection efficiency and causes scaling. Collect confirmatory laboratory samples and increase residual chlorine monitoring when pH is high."
+  },
+  {
+    "id": "KB-08",
+    "title": "SOP — Reduced flow, low pressure and leak response",
+    "type": "sop",
+    "text": "A sudden fall in downstream flow while upstream flow is unchanged indicates water is being lost between the meters. Compute the water balance: loss = upstream inflow − downstream measured outflow − accounted authorised consumption. If loss exceeds tolerance and downstream pressure has fallen, a physical leak or burst is likely: dispatch a field crew to walk the alignment, isolate and repair, then flush and sample before restoring supply (negative pressure can draw in contamination). If loss exceeds tolerance while pressure is maintained, unaccounted draw-off such as an unauthorised connection or unmetered authorised use is possible: verify connections in the field and check meter calibration before any enforcement action. If both upstream and downstream flows have fallen together, the problem is an upstream supply disruption (pump failure, power outage or source shortage), not a loss."
+  },
+  {
+    "id": "KB-09",
+    "title": "Method — Water balance and loss classification in JalNetra",
+    "type": "method",
+    "text": "JalNetra compares bulk meters at each end of a segment. Loss percentage = (upstream − downstream − authorised) / upstream × 100. Classification: within tolerance (default 8%) = normal; tolerance to tolerance + 4% = measurement uncertainty (verify calibration); above that with downstream pressure below 80% of baseline = suspected leakage; above that with pressure maintained = possible unauthorised draw-off; both flows reduced together = upstream supply disruption; any gap at a node flagged with a sensor fault = measurement uncertainty. JalNetra never labels a gap as theft; field verification is always required."
+  },
+  {
+    "id": "KB-10",
+    "title": "Method — Water quality risk score",
+    "type": "method",
+    "text": "Each sensor node gets a 0–100 risk score: a weighted sum of parameter exceedance intensities (chlorine 28, turbidity 24, pH 14, TDS 10, flow 10, pressure 8, ORP 6), with floors so that any warning parameter gives at least 35 and any critical parameter gives at least 70. Status is red (critical) if any parameter crosses its critical threshold, amber (warning) if any crosses its warning threshold, otherwise green. The village takes the status and score of its worst node. Thresholds are configurable in Data & Settings. Scores are decision-support indicators, not certified laboratory results."
+  },
+  {
+    "id": "KB-11",
+    "title": "Method — Public health surveillance priority score",
+    "type": "method",
+    "text": "The health surveillance priority score (0–100) = 0.50 × water-quality component (driven by low chlorine, high turbidity, abnormal pH) + 0.35 × case-trend component (suspected diarrhoeal cases in the last two weeks versus the 7-week baseline) + 0.15 × supply-stress component (low LPCD, intermittent supply which raises storage contamination risk). Score ≥ 40 = health surveillance watch; ≥ 70 = PUBLIC HEALTH WATCH. All health data in JalNetra are synthetic and anonymised. The score is an early-warning prioritisation tool: it is not a diagnosis, does not confirm an outbreak, and correlation between water-quality anomalies and cases is not proof of causation."
+  },
+  {
+    "id": "KB-12",
+    "title": "Waterborne diseases — cholera, typhoid and acute diarrhoeal disease",
+    "type": "health",
+    "text": "Cholera (Vibrio cholerae), typhoid (Salmonella Typhi) and acute diarrhoeal diseases are associated with faecal contamination of drinking water, poor sanitation and hygiene. Inadequate residual chlorine, high turbidity, intermittent supply and pipe leaks with negative pressure are recognised risk factors for contamination in piped systems. Under India's Integrated Disease Surveillance Programme (IDSP/IHIP), suspected cases are reported weekly; clustering of suspected cases should trigger investigation by the health department. Confirmation requires clinical and laboratory diagnosis by health professionals."
+  },
+  {
+    "id": "KB-13",
+    "title": "Method — Water equity score",
+    "type": "method",
+    "text": "LPCD = effective daily supply (litres, adjusted for supply days per week) / population. Demand fulfilled % = LPCD / norm (default 100 LPCD rural). Equity score (0–100) = 55% adequacy (LPCD/norm, capped at 1) + 15% supply days/7 + 15% reliability (share of uninterrupted days) + 15% water quality (1 − risk/100). Category: green adequate (≥ 75% of norm), amber moderate shortage (40–75%), red severe shortage (< 40%). District equity also reports a population-weighted Gini coefficient of LPCD (0 = perfectly equal). Underserved population = population of villages below 75% of norm."
+  },
+  {
+    "id": "KB-14",
+    "title": "Method — Illustrative demand forecasting model",
+    "type": "method",
+    "text": "For each village, JalNetra fits an ordinary least squares regression (small ridge penalty) on 30 days of synthetic history: per-capita demand ~ intercept + temperature deviation from 30 °C + rainfall + Sunday indicator. Forecasts scale the fitted per-capita demand by monthly seasonality, the chosen per-capita norm, population change and annual growth, and add institutional demand. A 95% band uses the residual standard deviation. Accuracy is reported as MAPE on a 20/10-day backtest. This is an illustrative model on synthetic data and is not a validated production forecasting model."
+  },
+  {
+    "id": "KB-15",
+    "title": "Sampling and verification protocol",
+    "type": "sop",
+    "text": "Online sensor readings must be confirmed before regulatory or public-health action. Use DPD kits for residual chlorine, calibrated portable meters for pH, turbidity and conductivity, and sterile bottles (with sodium thiosulphate) for bacteriological samples, delivered to an accredited laboratory within the holding time on ice. Record sampling location, time, sampler and chain of custody. Field test kits (FTK) used by village water and sanitation committees can provide screening results."
+  },
+  {
+    "id": "KB-16",
+    "title": "JalNetra IoT architecture (simulated)",
+    "type": "architecture",
+    "text": "Each monitoring node is modelled on an ESP32-class microcontroller with probes for pH, TDS/conductivity, turbidity, free chlorine (amperometric), ORP, an electromagnetic or ultrasonic flow meter and a pressure transducer. Nodes report every 15 minutes over LoRaWAN, GSM or NB-IoT to a gateway that publishes MQTT-style JSON messages on topics like jalnetra/<district>/<village>/<node>/telemetry. The FastAPI backend exposes POST /api/ingest and a WebSocket /ws/telemetry; the browser dashboard can subscribe and apply ingested readings. In this prototype all readings are simulated; no real devices or government data feeds are connected."
+  },
+  {
+    "id": "KB-17",
+    "title": "Operator guidance — storage tank hygiene",
+    "type": "sop",
+    "text": "Overhead service reservoirs and village storage tanks should be cleaned and disinfected periodically (commonly every 3–6 months and after any contamination event). Check covers, vents, overflow pipes and ladders for openings that allow birds, animals or dust to enter. Long residence time in storage reduces residual chlorine; balance storage volume with supply schedule."
+  },
+  {
+    "id": "KB-18",
+    "title": "Data disclaimer",
+    "type": "disclaimer",
+    "text": "All village names, sensor readings, flows, health surveillance figures, alerts and forecasts in JalNetra are synthetic and generated for demonstration and training. District names and approximate headquarters positions, mandal names and named reservoirs are real, but the assignment of sources to districts, treatment plants, service reservoirs and all pipeline alignments are illustrative. Nothing in JalNetra should be presented as actual government data or as real-time Mission Bhagiratha readings. Notifications are in-app simulations; no SMS or WhatsApp messages are sent unless a real gateway is configured."
+  }
+]

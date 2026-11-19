@@ -1,0 +1,571 @@
+{
+ "_note": "District names, approximate HQ coordinates, mandal names and named reservoirs are real (approximate). Source-to-district assignment is illustrative.",
+ "sources": [
+  {
+   "id": "src-srsp",
+   "name": "Sriram Sagar Project",
+   "river": "Godavari",
+   "lat": 18.966,
+   "lng": 78.343,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-kadem",
+   "name": "Kadem Project",
+   "river": "Kadem (Godavari basin)",
+   "lat": 19.102,
+   "lng": 78.79,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-kbheem",
+   "name": "Komaram Bheem Project",
+   "river": "Peddavagu (Godavari basin)",
+   "lat": 19.27,
+   "lng": 79.22,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-yellampalli",
+   "name": "Sripada Yellampalli Barrage",
+   "river": "Godavari",
+   "lat": 18.85,
+   "lng": 79.4,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-lmd",
+   "name": "Lower Manair Dam",
+   "river": "Manair",
+   "lat": 18.425,
+   "lng": 79.135,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-medigadda",
+   "name": "Lakshmi Barrage (Medigadda)",
+   "river": "Godavari",
+   "lat": 18.72,
+   "lng": 80,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-dummugudem",
+   "name": "Godavari at Dummugudem",
+   "river": "Godavari",
+   "lat": 17.88,
+   "lng": 80.87,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-paleru",
+   "name": "Paleru Reservoir",
+   "river": "Paleru (Krishna basin)",
+   "lat": 17.21,
+   "lng": 79.98,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-nsagar",
+   "name": "Nagarjuna Sagar",
+   "river": "Krishna",
+   "lat": 16.575,
+   "lng": 79.312,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-singur",
+   "name": "Singur Reservoir",
+   "river": "Manjira",
+   "lat": 17.76,
+   "lng": 77.93,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-himayat",
+   "name": "Himayat Sagar",
+   "river": "Esi (Musi basin)",
+   "lat": 17.32,
+   "lng": 78.37,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-srisailam",
+   "name": "Srisailam Reservoir",
+   "river": "Krishna",
+   "lat": 16.087,
+   "lng": 78.897,
+   "verified": "real-water-body"
+  },
+  {
+   "id": "src-jurala",
+   "name": "Priyadarshini Jurala Project",
+   "river": "Krishna",
+   "lat": 16.33,
+   "lng": 77.7,
+   "verified": "real-water-body"
+  }
+ ],
+ "districts": [
+  {
+   "id": "adb",
+   "name": "Adilabad",
+   "hq": "Adilabad",
+   "lat": 19.664,
+   "lng": 78.532,
+   "sourceId": "src-kadem",
+   "mandals": [
+    "Utnoor",
+    "Ichoda",
+    "Boath",
+    "Indervelly"
+   ]
+  },
+  {
+   "id": "bdk",
+   "name": "Bhadradri Kothagudem",
+   "hq": "Kothagudem",
+   "lat": 17.556,
+   "lng": 80.616,
+   "sourceId": "src-dummugudem",
+   "mandals": [
+    "Bhadrachalam",
+    "Palvancha",
+    "Yellandu",
+    "Manuguru"
+   ]
+  },
+  {
+   "id": "hnk",
+   "name": "Hanumakonda",
+   "hq": "Hanumakonda",
+   "lat": 18.011,
+   "lng": 79.558,
+   "sourceId": "src-lmd",
+   "mandals": [
+    "Hasanparthy",
+    "Dharmasagar",
+    "Elkathurthy",
+    "Kamalapur"
+   ]
+  },
+  {
+   "id": "hyd",
+   "name": "Hyderabad",
+   "hq": "Hyderabad",
+   "lat": 17.385,
+   "lng": 78.487,
+   "sourceId": "src-himayat",
+   "mandals": [
+    "Golconda",
+    "Amberpet"
+   ]
+  },
+  {
+   "id": "jgt",
+   "name": "Jagtial",
+   "hq": "Jagtial",
+   "lat": 18.795,
+   "lng": 78.917,
+   "sourceId": "src-srsp",
+   "mandals": [
+    "Korutla",
+    "Metpally",
+    "Dharmapuri",
+    "Mallial"
+   ]
+  },
+  {
+   "id": "jng",
+   "name": "Jangaon",
+   "hq": "Jangaon",
+   "lat": 17.723,
+   "lng": 79.152,
+   "sourceId": "src-lmd",
+   "mandals": [
+    "Station Ghanpur",
+    "Palakurthi",
+    "Bachannapet",
+    "Lingalaghanpur"
+   ]
+  },
+  {
+   "id": "jbp",
+   "name": "Jayashankar Bhupalpally",
+   "hq": "Bhupalpally",
+   "lat": 18.433,
+   "lng": 79.866,
+   "sourceId": "src-medigadda",
+   "mandals": [
+    "Chityal",
+    "Kataram",
+    "Mahadevpur",
+    "Malharrao"
+   ]
+  },
+  {
+   "id": "jgl",
+   "name": "Jogulamba Gadwal",
+   "hq": "Gadwal",
+   "lat": 16.234,
+   "lng": 77.8,
+   "sourceId": "src-jurala",
+   "mandals": [
+    "Alampur",
+    "Ieeja",
+    "Dharur",
+    "Maldakal"
+   ]
+  },
+  {
+   "id": "kmr",
+   "name": "Kamareddy",
+   "hq": "Kamareddy",
+   "lat": 18.32,
+   "lng": 78.341,
+   "sourceId": "src-srsp",
+   "mandals": [
+    "Banswada",
+    "Yellareddy",
+    "Bichkunda",
+    "Domakonda"
+   ]
+  },
+  {
+   "id": "knr",
+   "name": "Karimnagar",
+   "hq": "Karimnagar",
+   "lat": 18.439,
+   "lng": 79.129,
+   "sourceId": "src-lmd",
+   "mandals": [
+    "Huzurabad",
+    "Choppadandi",
+    "Manakondur",
+    "Gangadhara"
+   ]
+  },
+  {
+   "id": "kmm",
+   "name": "Khammam",
+   "hq": "Khammam",
+   "lat": 17.247,
+   "lng": 80.151,
+   "sourceId": "src-paleru",
+   "mandals": [
+    "Madhira",
+    "Sathupalli",
+    "Wyra",
+    "Kusumanchi"
+   ]
+  },
+  {
+   "id": "kba",
+   "name": "Kumuram Bheem Asifabad",
+   "hq": "Asifabad",
+   "lat": 19.365,
+   "lng": 79.284,
+   "sourceId": "src-kbheem",
+   "mandals": [
+    "Kagaznagar",
+    "Sirpur (T)",
+    "Wankidi",
+    "Jainoor"
+   ]
+  },
+  {
+   "id": "mbd",
+   "name": "Mahabubabad",
+   "hq": "Mahabubabad",
+   "lat": 17.598,
+   "lng": 79.999,
+   "sourceId": "src-dummugudem",
+   "mandals": [
+    "Thorrur",
+    "Kesamudram",
+    "Dornakal",
+    "Maripeda"
+   ]
+  },
+  {
+   "id": "mbn",
+   "name": "Mahabubnagar",
+   "hq": "Mahabubnagar",
+   "lat": 16.738,
+   "lng": 78.008,
+   "sourceId": "src-jurala",
+   "mandals": [
+    "Jadcherla",
+    "Devarakadra",
+    "Bhoothpur",
+    "Nawabpet"
+   ]
+  },
+  {
+   "id": "mcl",
+   "name": "Mancherial",
+   "hq": "Mancherial",
+   "lat": 18.87,
+   "lng": 79.443,
+   "sourceId": "src-yellampalli",
+   "mandals": [
+    "Bellampalli",
+    "Chennur",
+    "Luxettipet",
+    "Jannaram"
+   ]
+  },
+  {
+   "id": "mdk",
+   "name": "Medak",
+   "hq": "Medak",
+   "lat": 18.046,
+   "lng": 78.263,
+   "sourceId": "src-singur",
+   "mandals": [
+    "Narsapur",
+    "Ramayampet",
+    "Tekmal",
+    "Papannapet"
+   ]
+  },
+  {
+   "id": "mdl",
+   "name": "Medchal–Malkajgiri",
+   "hq": "Medchal",
+   "lat": 17.63,
+   "lng": 78.481,
+   "sourceId": "src-singur",
+   "mandals": [
+    "Shamirpet",
+    "Ghatkesar",
+    "Keesara",
+    "Medchal"
+   ]
+  },
+  {
+   "id": "mlg",
+   "name": "Mulugu",
+   "hq": "Mulugu",
+   "lat": 18.191,
+   "lng": 79.94,
+   "sourceId": "src-medigadda",
+   "mandals": [
+    "Eturnagaram",
+    "Venkatapur",
+    "Govindaraopet",
+    "Tadvai"
+   ]
+  },
+  {
+   "id": "ngk",
+   "name": "Nagarkurnool",
+   "hq": "Nagarkurnool",
+   "lat": 16.483,
+   "lng": 78.312,
+   "sourceId": "src-srisailam",
+   "mandals": [
+    "Achampet",
+    "Kalwakurthy",
+    "Kollapur",
+    "Amrabad"
+   ]
+  },
+  {
+   "id": "nlg",
+   "name": "Nalgonda",
+   "hq": "Nalgonda",
+   "lat": 17.057,
+   "lng": 79.267,
+   "sourceId": "src-nsagar",
+   "mandals": [
+    "Miryalaguda",
+    "Devarakonda",
+    "Nakrekal",
+    "Chandur"
+   ]
+  },
+  {
+   "id": "npt",
+   "name": "Narayanpet",
+   "hq": "Narayanpet",
+   "lat": 16.745,
+   "lng": 77.496,
+   "sourceId": "src-jurala",
+   "mandals": [
+    "Makthal",
+    "Kosgi",
+    "Damaragidda",
+    "Utkoor"
+   ]
+  },
+  {
+   "id": "nml",
+   "name": "Nirmal",
+   "hq": "Nirmal",
+   "lat": 19.096,
+   "lng": 78.344,
+   "sourceId": "src-srsp",
+   "mandals": [
+    "Bhainsa",
+    "Khanapur",
+    "Mudhole",
+    "Lokeswaram"
+   ]
+  },
+  {
+   "id": "nzb",
+   "name": "Nizamabad",
+   "hq": "Nizamabad",
+   "lat": 18.672,
+   "lng": 78.094,
+   "sourceId": "src-srsp",
+   "mandals": [
+    "Armoor",
+    "Bodhan",
+    "Balkonda",
+    "Dichpally"
+   ]
+  },
+  {
+   "id": "pdl",
+   "name": "Peddapalli",
+   "hq": "Peddapalli",
+   "lat": 18.614,
+   "lng": 79.375,
+   "sourceId": "src-yellampalli",
+   "mandals": [
+    "Manthani",
+    "Sultanabad",
+    "Ramagundam",
+    "Dharmaram"
+   ]
+  },
+  {
+   "id": "rjs",
+   "name": "Rajanna Sircilla",
+   "hq": "Sircilla",
+   "lat": 18.387,
+   "lng": 78.81,
+   "sourceId": "src-yellampalli",
+   "mandals": [
+    "Vemulawada",
+    "Ellanthakunta",
+    "Konaraopet",
+    "Gambhiraopet"
+   ]
+  },
+  {
+   "id": "rgr",
+   "name": "Ranga Reddy",
+   "hq": "Shamshabad area",
+   "lat": 17.18,
+   "lng": 78.32,
+   "sourceId": "src-himayat",
+   "mandals": [
+    "Chevella",
+    "Ibrahimpatnam",
+    "Farooqnagar",
+    "Maheshwaram"
+   ]
+  },
+  {
+   "id": "sgr",
+   "name": "Sangareddy",
+   "hq": "Sangareddy",
+   "lat": 17.624,
+   "lng": 78.087,
+   "sourceId": "src-singur",
+   "mandals": [
+    "Zaheerabad",
+    "Narayankhed",
+    "Andole",
+    "Patancheru"
+   ]
+  },
+  {
+   "id": "sdp",
+   "name": "Siddipet",
+   "hq": "Siddipet",
+   "lat": 18.102,
+   "lng": 78.852,
+   "sourceId": "src-yellampalli",
+   "mandals": [
+    "Gajwel",
+    "Dubbak",
+    "Husnabad",
+    "Cheriyal"
+   ]
+  },
+  {
+   "id": "sry",
+   "name": "Suryapet",
+   "hq": "Suryapet",
+   "lat": 17.14,
+   "lng": 79.62,
+   "sourceId": "src-nsagar",
+   "mandals": [
+    "Kodad",
+    "Huzurnagar",
+    "Thungathurthy",
+    "Nadigudem"
+   ]
+  },
+  {
+   "id": "vkb",
+   "name": "Vikarabad",
+   "hq": "Vikarabad",
+   "lat": 17.338,
+   "lng": 77.905,
+   "sourceId": "src-singur",
+   "mandals": [
+    "Tandur",
+    "Parigi",
+    "Kodangal",
+    "Pudur"
+   ]
+  },
+  {
+   "id": "wnp",
+   "name": "Wanaparthy",
+   "hq": "Wanaparthy",
+   "lat": 16.362,
+   "lng": 78.062,
+   "sourceId": "src-jurala",
+   "mandals": [
+    "Kothakota",
+    "Pebbair",
+    "Atmakur",
+    "Gopalpet"
+   ]
+  },
+  {
+   "id": "wgl",
+   "name": "Warangal",
+   "hq": "Warangal",
+   "lat": 17.93,
+   "lng": 79.75,
+   "sourceId": "src-lmd",
+   "mandals": [
+    "Narsampet",
+    "Parkal",
+    "Wardhannapet",
+    "Raiparthy"
+   ]
+  },
+  {
+   "id": "ydb",
+   "name": "Yadadri Bhuvanagiri",
+   "hq": "Bhongir",
+   "lat": 17.511,
+   "lng": 78.889,
+   "sourceId": "src-nsagar",
+   "mandals": [
+    "Alair",
+    "Choutuppal",
+    "Ramannapet",
+    "Mothkur"
+   ]
+  }
+ ]
+}

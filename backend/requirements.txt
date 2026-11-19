@@ -1,0 +1,5 @@
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.5
+# Optional: enables LLM answers in the JalNetra assistant (set ANTHROPIC_API_KEY).
+anthropic
