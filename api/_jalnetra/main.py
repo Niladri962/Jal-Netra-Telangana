@@ -14,7 +14,8 @@ Optional services for the browser simulation engine:
   POST /api/analytics/forecast          demand forecast on a history
 Everything served here is SIMULATED.
 
-Run:  uvicorn app.main:app --reload --port 8000   (from the backend/ folder)
+Run locally (repo root):  python -m uvicorn api.index:app --reload --port 8000
+On Vercel this app is served by the api/index.py serverless function.
 """
 from __future__ import annotations
 

@@ -2,7 +2,8 @@ node_modules/
 dist/
 __pycache__/
 *.pyc
-backend/data/
+.data/
 *.log
 .env
 *.tsbuildinfo
+.vercel

@@ -8,25 +8,23 @@ JalNetra is a working, fully interactive **simulation** of a state-level rural d
 
 ---
 
-## Quick start
+## Quick start (local)
 
-**Requirements:** Node.js 18+ (tested on 22), Python 3.10+.
+**Requirements:** Node.js 18+ (tested on 22), Python 3.10+. Run everything from the repo root.
 
 ```bash
-# 1) Frontend — the whole simulation runs in the browser
-cd frontend
+# 1) The app — the whole simulation runs in the browser
 npm install
-npm run dev            # → http://localhost:5173
+npm run dev                                   # → http://localhost:5173
 
 # 2) Optional backend — LLM assistant, IoT ingestion, SQLite dataset, Python analytics
-cd backend
 python -m pip install -r requirements.txt
-python -m uvicorn app.main:app --port 8000
+python -m uvicorn api.index:app --port 8000   # same FastAPI app Vercel runs as a function
 #   For LLM answers, set ANTHROPIC_API_KEY before starting (model: claude-opus-5-5;
 #   override with JALNETRA_MODEL). Without a key the assistant uses its labelled local fallback.
 
 # 3) Optional — simulated ESP32 devices publishing telemetry
-python backend/scripts/esp32_simulator.py --event low-chlorine
+python scripts/esp32_simulator.py --event low-chlorine
 #   then in the app: Data & Simulation Controls → IoT ingestion gateway → Connect
 ```
 
@@ -34,22 +32,22 @@ The Vite dev server proxies `/api` and `/ws` to `localhost:8000`. The top bar sh
 
 **Basemap:** the map uses keyless Esri / OpenStreetMap tiles, which need internet access. Offline, choose *Basemap: None*; all markers, pipelines and interactions still work.
 
-**Tests:** `cd frontend && npm run test:engine` runs the headless end-to-end engine test (the 12-step chlorine demo plus turbidity, TDS, pH, flow and pressure, water balance, equity, forecast and assistant checks).
+**Tests:** `npm run test:engine` runs the headless end-to-end engine test (the 12-step chlorine demo plus turbidity, TDS, pH, flow and pressure, water balance, equity, forecast and assistant checks).
 
 ---
 
-## Deploy on Vercel
+## Deploy on Vercel (single project)
 
-The repo is ready for Vercel with zero configuration changes:
+The repository is **one Vercel project**: the root is a Vite app, and `api/index.py` is its Python serverless function. There's no separate backend service to deploy.
 
-1. In Vercel, **Add New → Project → Import** this GitHub repository. Leave *Root Directory* as the repo root; `vercel.json` supplies the install and build commands (`frontend/`) and the output directory (`frontend/dist`).
-2. *(Optional)* Under **Settings → Environment Variables**, add `ANTHROPIC_API_KEY` to enable LLM answers in the assistant. `JALNETRA_MODEL` overrides the model (default `claude-opus-5-5`).
-3. Deploy. The static app is served from the CDN, and `/api/*` runs the FastAPI backend as a Python serverless function (`api/index.py`).
+1. In Vercel, **Add New → Project → Import** this repository. Vercel should detect a single **Vite** project at the root (`vercel.json` also pins `"framework": "vite"`). Keep *Root Directory* as `./` and the default settings.
+2. *(Optional)* Under **Environment Variables**, add `ANTHROPIC_API_KEY` to enable LLM answers. `JALNETRA_MODEL` overrides the model (default `claude-opus-5-5`).
+3. Click **Deploy**. Static files come from `dist/` on the CDN, and every `/api/*` request is rewritten to the FastAPI function (`api/index.py` → `api/_jalnetra/`).
 
 What differs on Vercel:
-- **Live WebSocket ingestion (`/ws/telemetry`) is unavailable**, because serverless functions cannot keep connections open. `POST /api/ingest` still validates and stores packets, and the dashboard shows the streaming button as unavailable. For live device streaming, run the backend as a server (`uvicorn`), for example on Render, Railway or a VM.
-- **SQLite lives in `/tmp`** and is regenerated (7 days of 15-minute history, about 1–2 s) on each cold start. Nothing persists between instances. Use PostgreSQL/PostGIS for durable storage.
-- Everything else (the full simulation, map, alerts, lab, reports, assistant fallback, CSV/PDF export) runs in the browser and behaves exactly as it does locally.
+- **Live WebSocket ingestion (`/ws/telemetry`) is unavailable**, because serverless functions cannot keep connections open. `POST /api/ingest` still validates and stores packets, and the dashboard shows the streaming button as unavailable with an explanation.
+- **SQLite lives in `/tmp`** and is regenerated (7 days of 15-minute history, about 1–2 s) on a cold start. Nothing persists between function instances.
+- Everything else (the full simulation, map, alerts, lab, reports, assistant, CSV/PDF export) behaves exactly as it does locally.
 
 ---
 
@@ -86,26 +84,33 @@ What differs on Vercel:
 ## Architecture
 
 ```
-frontend/  React 18 + TypeScript + Tailwind + Recharts + Leaflet (react-leaflet) + zustand
-  src/engine/      the simulation engine (pure TypeScript, unit-testable)
-    generator.ts     synthetic data: districts → villages → nodes, segments, 30-d supply, 13-wk health
-    sim.ts           15-min physics tick, user overrides, reversible abnormal events
-    compute.ts       derived layer: risk, LPCD, equity, Gini, water balance + loss classifier, health priority
-    alerts.ts        condition builder + alert diff (raise / escalate / auto-resolve)
-    forecast.ts      per-village OLS demand model with backtest
-    history.ts       deterministic 15-min × 30-day sensor history per node (lazy)
-    thresholds.ts    BIS IS 10500 + operational thresholds, parameter knowledge, ORP coupling
-    assistant.ts     BM25 retrieval, live-state intent handlers, LLM context builder
-  src/store.ts     single store; every mutation → recompute → alert diff → notifications
-  src/data/        knowledge_base.json and telangana_geo.json (shared with the backend)
-
-backend/   FastAPI (optional)
-  app/main.py      REST + WebSocket: /api/health, /api/assistant, /api/ingest, /ws/telemetry,
-                   /api/datasets/*, /api/readings, /api/analytics/{anomalies,forecast}
-  app/rag.py       BM25 retrieval + Claude (Anthropic SDK; server-side refusal fallback; prompt caching)
-  app/generator.py bulk synthetic dataset → SQLite (285k 15-min readings, supply, health, pipeline)
-  app/analytics.py robust MAD/EWMA/flat-line anomaly detection; OLS + Holt demand forecast
-  scripts/esp32_simulator.py  ESP32 / LoRaWAN / GSM device emulator (MQTT-style topics, HTTP POST)
+/ (repo root = the Vercel project)
+  index.html, package.json, vite.config.ts, tailwind.config.js, tsconfig.json
+  vercel.json            Vite build → dist/, /api/* → api/index.py
+  requirements.txt       Python deps for the serverless function
+  src/                   React 18 + TypeScript + Tailwind + Recharts + Leaflet + zustand
+    engine/                the simulation engine (pure TypeScript, unit-testable)
+      generator.ts           synthetic data: districts → villages → nodes, segments, 30-d supply, 13-wk health
+      sim.ts                 15-min physics tick, user overrides, reversible abnormal events
+      compute.ts             derived layer: risk, LPCD, equity, Gini, water balance + loss classifier, health
+      alerts.ts              condition builder + alert diff (raise / escalate / auto-resolve)
+      forecast.ts            per-village OLS demand model with backtest
+      history.ts             deterministic 15-min × 30-day sensor history per node (lazy)
+      thresholds.ts          BIS IS 10500 + operational thresholds, parameter knowledge, ORP coupling
+      assistant.ts           BM25 retrieval, live-state intent handlers, LLM context builder
+    store.ts               single store; every mutation → recompute → alert diff → notifications
+    data/                  knowledge_base.json, telangana_geo.json (also read by the Python backend)
+  api/
+    index.py             Vercel function entry (exports the FastAPI `app`)
+    _jalnetra/           backend package (underscore = not a separate function)
+      main.py              REST + WebSocket: /api/health, /api/assistant, /api/ingest, /ws/telemetry,
+                           /api/datasets/*, /api/readings, /api/analytics/{anomalies,forecast}
+      rag.py               BM25 retrieval + Claude (Anthropic SDK; refusal fallback; prompt caching)
+      generator.py         bulk synthetic dataset → SQLite
+      analytics.py         robust MAD/EWMA/flat-line anomaly detection; OLS + Holt demand forecast
+  scripts/
+    engine-test.ts       headless engine test (npm run test:engine)
+    esp32_simulator.py   ESP32 / LoRaWAN / GSM device emulator (MQTT-style topics, HTTP POST)
 ```
 
 **Why the engine runs in the browser:** every interaction must recalculate instantly without a page refresh, and the app must still be demonstrable with no server. The backend adds the parts that need a server (LLM calls, device ingestion, bulk storage, Python analytics). Its modules are separate so real IoT feeds (MQTT broker → `/api/ingest`) and verified datasets (PostGIS) can be added later.

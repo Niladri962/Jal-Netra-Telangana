@@ -1,5 +1,7 @@
 # Python dependencies for the Vercel serverless function (api/index.py).
-# For local development use backend/requirements.txt (adds uvicorn).
 fastapi>=0.111
 pydantic>=2.5
+# Enables LLM answers in the JalNetra assistant when ANTHROPIC_API_KEY is set.
 anthropic
+# Local development server only (not used by Vercel): python -m uvicorn api.index:app --port 8000
+uvicorn>=0.30

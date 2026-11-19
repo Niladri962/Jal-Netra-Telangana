@@ -5,7 +5,7 @@ POSTed to the JalNetra backend's /api/ingest endpoint, which broadcasts it on /w
 Connect the dashboard via "Data & Simulation Controls → IoT ingestion gateway" to watch the
 readings land on the matching nodes in real time.
 
-Usage (from the backend/ folder, with the API running on :8000):
+Usage (from the repo root, with the API running locally on :8000 or pass --api <url>):
     python scripts/esp32_simulator.py                         # featured demo nodes, normal readings
     python scripts/esp32_simulator.py --event low-chlorine    # chlorinator failure on nlg-v1-tap1
     python scripts/esp32_simulator.py --nodes adb-v1-tap1,knr-v1-inlet --interval 2 --count 20
